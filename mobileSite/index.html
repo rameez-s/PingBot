@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PingBot</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
+        <!-- <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> -->
+        <link rel="stylesheet" href="static/style.css">
+    </head>
+    <body>
+      <div class="container">
+            <div class="sliderBlock left">
+                <input type="range" orient="vertical" min="-255" max="255" value="0" id="LMotor" class="slider" style="position: absolute;left: -15vw;top: 48vh;">
+            </div>
+            <!-- <img class="camStreamContainer" id="camStream" src="{{ url_for('static', filename='cover.png') }}"> -->
+            <img class="camStreamContainer" id="camStream" src="static/cover.png">
+            <div class="sliderBlock right">
+                <input type="range" orient="vertical" min="-255" max="255" value="0" id="RMotor" class="slider" style="position: absolute;right: -15vw;top: 48vh;">
+            </div>
+      </div>
+      <div id="color-modal" class="modal-window">
+          <div>
+              <a href="#" title="Close" class="modal-close">Close</a>
+              <div>
+                  <input class="color-slider" id="colorslider" type="range" step="0.02" max="360" min="0" value="0"/>
+                  <!-- <img style="width:93%;z-index:-1;" src="{{ url_for('static', filename='hue.PNG') }}"> -->
+                  <img style="width:93%;z-index:-1;" src="static/hue.png">
+              </div>
+              <!-- TODO: Add Rainbow Button -->
+          </div>
+      </div>
+      <div id="sound-modal" class="modal-window">
+          <div>
+              <a href="#" title="Close" class="modal-close">Close</a>
+              <div>
+                  <div style="color:white;" onclick="sound(this.value)" value="happy" class="btn-round green"><span>happy</span></div>
+                  <div style="color:white;" onclick="sound(this.value)" value="sad" class="btn-round red"><span>sad</span></div>
+                  <div style="color:white;" onclick="sound(this.value)" value="ew" class="btn-round yellow"><span>ew</span></div>
+                  <div style="color:white;" onclick="sound(this.value)" value="ah" class="btn-round blue"><span>ah</span></div>
+              </div>
+          </div>
+      </div>
+      <div id="motion-modal" class="modal-window">
+          <div>
+              <a href="#" title="Close" class="modal-close">Close</a>
+              <div>
+                  <h1 style="color:red;">MOTION DETECTED</h1>
+              </div>
+          </div>
+      </div>
+      <div class="footer">
+          <div class="btn-round" onclick="toggleMotionAlert()"><span>motion</span></div>
+          <div class="btn-round" onclick="toggleCam()"><span>camera</span></div>
+          <a href="#color-modal"><div class="btn-round"><span>eyes</span></div></a>
+          <a href="#sound-modal"><div class="btn-round" onclick="soundOptions()"><span>sound</span></div></a>
+      </div>
+
+      <script type="text/javascript" src="static/main.js"></script>
+      <!-- <script type="text/javascript" src="{{ url_for('static', filename='main.js') }}"></script> -->
+
+    </body>
+</html>
